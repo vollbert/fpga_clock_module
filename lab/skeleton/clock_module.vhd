@@ -71,7 +71,7 @@ end clock_module;
 architecture Behavioral of clock_module is
 	
 	signal dcf_str_print : std_logic := '0';
-	signal date_time : std_logic_vector(58 downto 0) := (others => '0');
+	signal date_time_year : std_logic_vector(58 downto 0) := (others => '0');
 	signal mode : std_logic_vector(2 downto 0) := (others => '0');
 	
 	component lcd_controller
@@ -162,7 +162,7 @@ global_fsm: fsm port map(
       de_hour => de_hour, 
       de_min => de_min, 
       dcf_str_print => dcf_str_print, 
-      date_time_year => date_time);
+      date_time_year => date_time_year);
 
 	
 end Behavioral;
