@@ -28,7 +28,7 @@ end lcd_controller;
 architecture Behavioral of lcd_controller is
 
 
-	type fsm_state_type is (idle, set_init, init, set_mode, display_date, display_time);
+	type fsm_state_type is (idle, set_init, init, set_mode, display_date, display_time, display_alarm, display_time_switch_on, display_time_switch_off, display_countdown_timer, display_stopwatch);
 
 	component ram is
 		Port 
@@ -36,14 +36,14 @@ architecture Behavioral of lcd_controller is
 			clk : in std_logic;
                         reset            : in std_logic;
                         dcf_str_print    : in std_logic;
-			read_addr : in std_logic_vector(7 downto 0);
-                        date_time_i :in std_logic_vector(47 downto 0);
+			read_addr : in std_logic_vector(9 downto 0);
+                        date_time_i :in std_logic_vector(58 downto 0);
                         mode : in std_logic_vector(2 downto 0);
 			data_out : out std_logic_vector(7 downto 0)
 		);
 	end component;
 
-        signal read_addr : std_logic_vector(7 downto 0) := "00000000";
+        signal read_addr : std_logic_vector(9 downto 0) := "00000000";
         signal enable_enable : std_logic := '1';
         signal timer : std_logic_vector(7 downto 0) := "00000000";
         -- fsm signals
@@ -71,7 +71,7 @@ begin
 
             if rising_edge(clk) then
                 if reset = '1' then
-                    read_addr <= "00000000";
+                    read_addr <= "0000000000";
                     lcd_rw <= '0';
                     state <= set_init;
                 else
@@ -83,10 +83,10 @@ begin
                         when init =>
                     -- set to the number of init instructions
                             
-                            if read_addr = x"00" then
+                            if read_addr = x"000" then
                                 read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                             -- clear display exec time of 1.52 ms
-                            elsif read_addr = x"01" then
+                            elsif read_addr = x"001" then
                                 
                                 if timer = x"0F" then
                                             read_addr <= std_logic_vector(unsigned(read_addr) + 1);
@@ -96,7 +96,7 @@ begin
                                 end if;
                                 
                                  -- return home exec time of 1.52 ms
-                             elsif read_addr = x"02" then
+                             elsif read_addr = x"002" then
                                  if timer = x"0F" then
                                             read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                                             timer <= x"00";
@@ -107,7 +107,7 @@ begin
                                     read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                             end if;
                                 
-                            if read_addr = x"04" then
+                            if read_addr = x"004" then
                                 state <= set_mode;
                             else 
                                 state <= init;
@@ -117,16 +117,36 @@ begin
                     -- verify mode code with team
 
                             if unsigned(mode) = 0 then
-                                state <= display_date;
-                                read_addr <= x"0A"; --10
-                            elsif mode = "001" then
                                 state <= display_time;
-                                read_addr <= x"5a"; --90
-                            else
-                    -- to do
+                                read_addr <= x"00A"; --10
+
+                            elsif mode = "001" then
+                                state <= display_date;
+                                read_addr <= x"064"; --100
+
+                            elsif mode = "010" then
+                                state <= display_alarm;
+                                read_addr <= x"0C8"; --200
+
+                            elsif mode = "011" then
+                                state <= display_time_switch_on;
+                                read_addr <= x"12C"; --300
+
+                            elsif mode = "100" then
+                                state <= display_time_switch_off;
+                                read_addr <= x"190"; --400
+
+                            elsif mode = "101" then
+                                state <= display_countdown_timer;
+                                read_addr <= x"1F4"; --500
+
+                            elsif mode = "111" then
+                                state <= display_stopwatch;
+                                read_addr <= x"258"; --600
+
                             end if;
 
-                        when display_date =>
+                        when display_time =>
                     -- buffer goes from 10 to 89
                             read_addr <= std_logic_vector(unsigned(read_addr) + 1);
 
@@ -134,11 +154,51 @@ begin
                                 state <= set_mode;
                             end if;
 
-                        when display_time =>
-                    -- buffer goes from 50 to 89
+                        when display_date =>
+                    -- buffer goes from 100 to 179
                             read_addr <= std_logic_vector(unsigned(read_addr) + 1);
 
-                            if unsigned(read_addr) = 89 then
+                            if unsigned(read_addr) = 179 then
+                                state <= set_mode;
+                            end if;
+
+                        when display_alarm =>
+                    -- buffer goes from 200 to 279
+                            read_addr <= std_logic_vector(unsigned(read_addr) + 1);
+
+                            if unsigned(read_addr) = 279 then
+                                state <= set_mode;
+                            end if;
+
+                        when display_time_switch_on =>
+                    -- buffer goes from 300 to 379
+                            read_addr <= std_logic_vector(unsigned(read_addr) + 1);
+
+                            if unsigned(read_addr) = 379 then
+                                state <= set_mode;
+                            end if;
+
+                        when display_time_switch_off =>
+                    -- buffer goes from 400 to 479
+                            read_addr <= std_logic_vector(unsigned(read_addr) + 1);
+
+                            if unsigned(read_addr) = 479 then
+                                state <= set_mode;
+                            end if;
+
+                        when display_countdown_timer =>
+                    -- buffer goes from 500 to 579
+                            read_addr <= std_logic_vector(unsigned(read_addr) + 1);
+
+                            if unsigned(read_addr) = 579 then
+                                state <= set_mode;
+                            end if;
+
+                        when display_stopwatch =>
+                    -- buffer goes from 600 to 679
+                            read_addr <= std_logic_vector(unsigned(read_addr) + 1);
+
+                            if unsigned(read_addr) = 679 then
                                 state <= set_mode;
                             end if;
 
@@ -151,24 +211,58 @@ begin
         if falling_edge(clk) then
             case state is
                 when idle =>
+
                 when set_init =>
                     enable_enable <= '1';
+                    
                 when init =>
                     enable_enable <= '1';
                     if read_addr = x"04" then
                         enable_enable <= '0';
                     end if;
+
                 when set_mode =>
                     enable_enable <= '1';
-                when display_date =>
+
+                when display_time =>
                     enable_enable <= '1';
                     if unsigned(read_addr) = 89 then
                         enable_enable <= '0';
                     end if;
 
-                when display_time =>
+                when display_date =>
                     enable_enable <= '1';
-                    if unsigned(read_addr) = 169 then
+                    if unsigned(read_addr) = 179 then
+                        enable_enable <= '0';
+                    end if;
+
+                when display_alarm =>
+                    enable_enable <= '1';
+                    if unsigned(read_addr) = 279 then
+                        enable_enable <= '0';
+                    end if;
+
+                when display_time_switch_on =>
+                    enable_enable <= '1';
+                    if unsigned(read_addr) = 379 then
+                        enable_enable <= '0';
+                    end if;
+
+                when display_time_switch_off =>
+                    enable_enable <= '1';
+                    if unsigned(read_addr) = 479 then
+                        enable_enable <= '0';
+                    end if;
+
+                when display_countdown_timer =>
+                    enable_enable <= '1';
+                    if unsigned(read_addr) = 579 then
+                        enable_enable <= '0';
+                    end if;
+
+                when display_stopwatch =>
+                    enable_enable <= '1';
+                    if unsigned(read_addr) = 679 then
                         enable_enable <= '0';
                     end if;
 

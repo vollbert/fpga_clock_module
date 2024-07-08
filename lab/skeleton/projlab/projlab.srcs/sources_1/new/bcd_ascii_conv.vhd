@@ -46,7 +46,7 @@ begin
 			when "1001" =>
 				ascii_signal <= x"39"; -- '9'
 			when others =>
-				ascii_signal <= x"3F"; -- '?'
+				ascii_signal <= x"20"; -- ' '
 		end case;
 	end process;
 end Behavioral;
