@@ -1,0 +1,9 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.sim/sim_1/synth/timing/xsim/lcd_controller_tb_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clock_gen
+INFO: [VRFC 10-311] analyzing module clock_module
+INFO: [VRFC 10-311] analyzing module dcf_gen
+INFO: [VRFC 10-311] analyzing module hardware
+INFO: [VRFC 10-311] analyzing module lcd_controller
+INFO: [VRFC 10-311] analyzing module ram
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-311] analyzing module glbl

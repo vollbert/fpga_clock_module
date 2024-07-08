@@ -1,0 +1,41 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Jul  5 09:57:45 2024
+# Process ID: 3103103
+# Current directory: /nas/ei/home/ge93zow/lab
+# Command line: vivado
+# Log file: /nas/ei/home/ge93zow/lab/vivado.log
+# Journal file: /nas/ei/home/ge93zow/lab/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source lcd_controller_tb.tcl
+current_wave_config {}
+add_wave {{/lcd_controller_tb/lcd_controller_inst/read_addr}} {{/lcd_controller_tb/lcd_controller_inst/enable_enable}} {{/lcd_controller_tb/lcd_controller_inst/state}} {{/lcd_controller_tb/lcd_controller_inst/lcd_en_pulse}} 
+relaunch_sim
+run 1 ms
+relaunch_sim
+run 1 ms
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_run impl_1
+disconnect_hw_server localhost:3121
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+disconnect_hw_server localhost:3121
+connect_hw_server
+close_sim

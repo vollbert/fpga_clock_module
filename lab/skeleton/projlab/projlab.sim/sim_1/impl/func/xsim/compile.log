@@ -1,0 +1,10 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.sim/sim_1/impl/func/xsim/lcd_controller_tb_func_impl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'clock_gen'
+INFO: [VRFC 10-3107] analyzing entity 'dcf_gen'
+INFO: [VRFC 10-3107] analyzing entity 'ram'
+INFO: [VRFC 10-3107] analyzing entity 'lcd_controller'
+INFO: [VRFC 10-3107] analyzing entity 'clock_module'
+INFO: [VRFC 10-3107] analyzing entity 'top'
+INFO: [VRFC 10-3107] analyzing entity 'hardware'
+INFO: [VRFC 10-163] Analyzing VHDL file "/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sources_1/new/lcd_controller.vhd" into library MFclock
+INFO: [VRFC 10-3107] analyzing entity 'lcd_controller'

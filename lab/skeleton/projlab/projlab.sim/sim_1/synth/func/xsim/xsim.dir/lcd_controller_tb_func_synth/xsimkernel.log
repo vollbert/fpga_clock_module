@@ -1,0 +1,4 @@
+Running: xsim.dir/lcd_controller_tb_func_synth/xsimk -simmode gui -wdb lcd_controller_tb_func_synth.wdb -simrunnum 0 -socket 40539
+Design successfully loaded
+Design Loading Memory Usage: 34660 KB (Peak: 34660 KB)
+Design Loading CPU Usage: 30 ms

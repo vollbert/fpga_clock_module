@@ -1,0 +1,15 @@
+0.6
+2019.1
+May 24 2019
+14:51:52
+/nas/ei/home/ge93zow/lab/skeleton/clock_gen.vhd,1555588359,vhdl,/nas/ei/home/ge93zow/lab/skeleton/hardware.vhd,,,clock_gen,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/clock_module.vhd,1720113928,vhdl,/nas/ei/home/ge93zow/lab/skeleton/top.vhd,,,clock_module,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/dcf_decode.vhd,1555588359,vhdl,/nas/ei/home/ge93zow/lab/skeleton/top.vhd,,,dcf_decode,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/dcf_gen.vhd,1555588359,vhdl,/nas/ei/home/ge93zow/lab/skeleton/hardware.vhd,,,dcf_gen,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/debounce.vhd,1555588359,vhdl,/nas/ei/home/ge93zow/lab/skeleton/key_control.vhd,,,debounce,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/hardware.vhd,1567157369,vhdl,,,,hardware,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/key_control.vhd,1555588359,vhdl,/nas/ei/home/ge93zow/lab/skeleton/top.vhd,,,key_control,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sources_1/new/bcd_ascii_conv.vhd,1720112309,vhdl,,,,bcd_ascii_conv,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sources_1/new/lcd_controller.vhd,1720172857,vhdl,,,,lcd_controller,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sources_1/new/ram.vhd,1720172578,vhdl,,,,ram,,,,,,,,
+/nas/ei/home/ge93zow/lab/skeleton/top.vhd,1555588359,vhdl,/nas/ei/home/ge93zow/lab/skeleton/hardware.vhd,,,top,,,,,,,,

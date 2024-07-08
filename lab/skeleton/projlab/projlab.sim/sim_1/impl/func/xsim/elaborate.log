@@ -1,0 +1,13 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /nfs/tools/xilinx/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto 31bef746fe0249eea5f7bea39abcd7a5 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L MFclock -L secureip --snapshot lcd_controller_tb_func_impl xil_defaultlib.lcd_controller_tb -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-718] formal port <dcf_str_print> does not exist in entity <lcd_controller>.  Please compare the definition of block <lcd_controller> to its component declaration and its instantion to detect the mismatch. [/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new/lcd_controller_tb.vhd:36]
+ERROR: [VRFC 10-718] formal port <mode> does not exist in entity <lcd_controller>.  Please compare the definition of block <lcd_controller> to its component declaration and its instantion to detect the mismatch. [/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new/lcd_controller_tb.vhd:37]
+ERROR: [VRFC 10-718] formal port <date_time_i> does not exist in entity <lcd_controller>.  Please compare the definition of block <lcd_controller> to its component declaration and its instantion to detect the mismatch. [/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new/lcd_controller_tb.vhd:38]
+ERROR: [VRFC 10-718] formal port <lcd_en> does not exist in entity <lcd_controller>.  Please compare the definition of block <lcd_controller> to its component declaration and its instantion to detect the mismatch. [/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new/lcd_controller_tb.vhd:39]
+ERROR: [VRFC 10-718] formal port <lcd_rw> does not exist in entity <lcd_controller>.  Please compare the definition of block <lcd_controller> to its component declaration and its instantion to detect the mismatch. [/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new/lcd_controller_tb.vhd:40]
+ERROR: [VRFC 10-718] formal port <lcd_rs> does not exist in entity <lcd_controller>.  Please compare the definition of block <lcd_controller> to its component declaration and its instantion to detect the mismatch. [/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new/lcd_controller_tb.vhd:41]
+ERROR: [VRFC 10-718] formal port <lcd_data> does not exist in entity <lcd_controller>.  Please compare the definition of block <lcd_controller> to its component declaration and its instantion to detect the mismatch. [/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new/lcd_controller_tb.vhd:42]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit lcd_controller_tb in library work failed.

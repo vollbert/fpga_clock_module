@@ -1,0 +1,187 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Jul  4 19:36:19 2024
+# Process ID: 121706
+# Current directory: /nas/ei/home/ge93zow/lab/skeleton
+# Command line: vivado
+# Log file: /nas/ei/home/ge93zow/lab/skeleton/vivado.log
+# Journal file: /nas/ei/home/ge93zow/lab/skeleton/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.xpr
+update_compile_order -fileset sources_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.runs/impl_1/hardware.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.runs/impl_1/hardware.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+launch_simulation
+source hardware.tcl
+close_sim
+launch_simulation
+close_hw
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top lcd_controller [get_filesets sim_1]
+set_property top_lib MFclock [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+file mkdir /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new/lcd_controller_tb.vhd w ]
+add_files -fileset sim_1 /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sim_1/new/lcd_controller_tb.vhd
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top lcd_controller_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source lcd_controller_tb.tcl
+run 1 ms
+current_wave_config {Untitled 1}
+add_wave {{/lcd_controller_tb/lcd_controller_inst/read_addr}} {{/lcd_controller_tb/lcd_controller_inst/enable_enable}} {{/lcd_controller_tb/lcd_controller_inst/state}} {{/lcd_controller_tb/lcd_controller_inst/lcd_en_pulse}} 
+relaunch_sim
+run 1 ms
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.runs/impl_1/hardware.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+close_sim
+launch_simulation
+source lcd_controller_tb.tcl
+current_wave_config {Untitled 2}
+add_wave {{/lcd_controller_tb/lcd_controller_inst/read_addr}} {{/lcd_controller_tb/lcd_controller_inst/enable_enable}} {{/lcd_controller_tb/lcd_controller_inst/state}} {{/lcd_controller_tb/lcd_controller_inst/lcd_en_pulse}} 
+relaunch_sim
+run 1 ms
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_simulation -mode post-synthesis -type functional
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.runs/impl_1/hardware.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+launch_simulation -mode post-implementation -type functional
+close_sim
+launch_simulation
+source lcd_controller_tb.tcl
+run 1 ms
+close_sim
+launch_simulation
+source lcd_controller_tb.tcl
+run 1 ms
+current_wave_config {Untitled 4}
+add_wave {{/lcd_controller_tb/lcd_controller_inst/read_addr}} {{/lcd_controller_tb/lcd_controller_inst/enable_enable}} {{/lcd_controller_tb/lcd_controller_inst/state}} {{/lcd_controller_tb/lcd_controller_inst/lcd_en_pulse}} 
+relaunch_sim
+run 1 ms
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+current_design synth_1
+close_design
+open_run synth_1 -name synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_simulation -mode post-synthesis -type functional
+launch_simulation -mode post-synthesis -type functional
+close_sim
+launch_simulation
+source lcd_controller_tb.tcl
+run 1 ms
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+close_design
+open_run synth_1 -name synth_1
+launch_simulation -mode post-synthesis -type functional
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_simulation -mode post-synthesis -type timing
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+current_design impl_1
+close_design
+launch_simulation -mode post-implementation -type functional
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.runs/impl_1/hardware.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
+close_hw
+close_design
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top lcd_controller [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+close_design
+launch_simulation -mode post-synthesis -type functional
+source lcd_controller_tb.tcl
+run 1 ms
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+close_sim
+close_design
+launch_simulation -mode post-synthesis -type functional
+source lcd_controller_tb.tcl
+run 1 ms
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+close_hw
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top hardware [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+close_design
+open_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.runs/impl_1/hardware.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.runs/impl_1/hardware.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]

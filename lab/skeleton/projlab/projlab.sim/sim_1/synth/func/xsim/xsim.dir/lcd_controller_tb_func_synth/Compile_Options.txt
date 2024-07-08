@@ -1,0 +1,1 @@
+-wto "31bef746fe0249eea5f7bea39abcd7a5" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" --snapshot "lcd_controller_tb_func_synth" "xil_defaultlib.lcd_controller_tb" -log "elaborate.log" 

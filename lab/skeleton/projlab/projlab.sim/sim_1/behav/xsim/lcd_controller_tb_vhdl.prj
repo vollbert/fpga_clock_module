@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl MFclock  \
+"../../../../projlab.srcs/sources_1/new/bcd_ascii_conv.vhd" \
+"../../../../projlab.srcs/sources_1/new/lcd_controller.vhd" \
+"../../../../projlab.srcs/sources_1/new/ram.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../projlab.srcs/sim_1/new/lcd_controller_tb.vhd" \
+
+# Do not sort compile order
+nosort
