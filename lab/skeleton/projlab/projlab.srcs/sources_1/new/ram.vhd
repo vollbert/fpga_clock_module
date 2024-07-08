@@ -949,6 +949,8 @@ begin
     begin
         if rising_edge(clk) then
             if reset = '1' then
+            
+            -- to do
 
                 else
                     if dcf_str_print = '1' then
