@@ -88,7 +88,18 @@ architecture Behavioral of clock_module is
         lcd_data         : out std_logic_vector(7 downto 0)
     );
 end component;
-	
+		
+component fsm is
+    Port ( key_mode_imp : in STD_LOGIC;
+           key_plus_imp : in  STD_LOGIC;
+           key_minus_imp :in  STD_LOGIC;
+           key_action_imp : in  STD_LOGIC;
+           clk : in STD_LOGIC;
+           en_1k : in STD_LOGIC;
+           reset : in STD_LOGIC;
+           mode : out STD_LOGIC_VECTOR(2 downto 0)
+           );
+end component;		
 
 	
 	
@@ -108,7 +119,17 @@ begin
     lcd_rs => lcd_rs,
     lcd_data => lcd_data
 );
-
+		
+global_fsm: fsm port map(
+    key_mode_imp=> key_mode_imp,
+    key_minus_imp=> key_minus_imp,
+    key_plus_imp=> key_plus_imp,
+    key_action_imp => key_action_imp,
+    clk => clk,
+    en_1k=>en_1k,
+    reset=>reset,
+    mode=> mode
+    );
 
 	
 end Behavioral;
