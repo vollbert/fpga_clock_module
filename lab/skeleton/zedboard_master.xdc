@@ -385,10 +385,3 @@ create_generated_clock -source [get_ports GCLK] -divide_by 10000 [get_nets clk]
 
 
 
-
-
-connect_debug_port u_ila_0/probe4 [get_nets [list {top/clock_module/lcd_contr_module/read_addr[1]_i_1_n_0}]]
-connect_debug_port u_ila_0/probe5 [get_nets [list {top/clock_module/lcd_contr_module/read_addr[2]_i_1_n_0}]]
-connect_debug_port u_ila_0/probe6 [get_nets [list {top/clock_module/lcd_contr_module/read_addr[3]_i_1_n_0}]]
-connect_debug_port u_ila_0/probe9 [get_nets [list {top/clock_module/lcd_contr_module/read_addr[7]_i_2_n_0}]]
-

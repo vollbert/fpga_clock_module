@@ -72,7 +72,7 @@ architecture Behavioral of ram is
         x"20", 
         x"20", 
         x"20", 
-        x"20", 
+        x"20",
         x"20",
         x"20",
         x"20",
@@ -140,8 +140,649 @@ architecture Behavioral of ram is
         x"20", 
         x"20", 
 
-        -- display time -- 100
+        -- display date -- 100
+                -- first row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"54", -- T
+        x"69", -- i
+        x"6d", -- m
+        x"65", -- e
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- second row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"44", -- D
+        x"41", -- A
+        x"54", -- T
+        x"45", -- E
+        x"3a", -- :
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        -- third row
+        x"41", -- A
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", -- hour 1
+        x"20", -- hour 2
+        x"3a", -- :
+        x"10", -- minute 1
+        x"10", -- minute 2
+        x"3a", -- :
+        x"20", -- second 1
+        x"20", -- second 2
+        x"20",
+        x"20",
+        x"20", -- D
+        x"20", -- C
+        x"20", -- F
+        x"20",
+        x"53", -- S
+        -- fourth row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", -- weekday to do bcd to weekday_conv
+        x"20", --
+        x"20", --
+        x"20",
+        x"20", -- day 1
+        x"20", -- day 2
+        x"2F", -- /
+        x"20", -- month 1
+        x"20", -- month 2
+        x"2F", -- /
+        x"20", -- year 3
+        x"20", -- ear 4
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- padding
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        
+                -- display alarm -- 200
+                -- first row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"54", -- T
+        x"69", -- i
+        x"6d", -- m
+        x"65", -- e
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- second row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"41", -- A 
+        x"4c", -- L
+        x"41", -- A
+        x"52", -- R
+        x"4d", -- M
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- third row
+        x"41", -- A
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", -- hour 1
+        x"20", -- hour 2
+        x"3a", -- :
+        x"10", -- minute 1
+        x"10", -- minute 2
+        x"3a", -- :
+        x"20", -- second 1
+        x"20", -- second 2
+        x"20",
+        x"20",
+        x"20", -- D
+        x"20", -- C
+        x"20", -- F
+        x"20",
+        x"53", -- S
+        -- fourth row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        x"20",
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"20", 
+        x"20",
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- padding
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        
+                    -- display time_switch_on -- 300
+                -- first row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"4f", -- O
+        x"6e", -- n
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- second row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        x"4f", -- O
+        x"66", -- f
+        x"66", -- f
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- third row
+        x"41", -- A
+        x"20", 
+        x"20", 
+        x"2a", -- * 
+        x"20", 
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"20",
+        x"20",
+        x"20", -- D
+        x"20", -- C
+        x"20", -- F
+        x"20",
+        x"53", -- S
+        -- fourth row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"30", -- 0
+        x"3a", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"20",
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- padding
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        
+                            -- display time_switch_off -- 400
+                -- first row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"4f", -- O
+        x"6e", -- n
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- second row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        x"4f", -- O
+        x"66", -- f
+        x"66", -- f
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- third row
+        x"41", -- A
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"20",
+        x"20",
+        x"20", -- D
+        x"20", -- C
+        x"20", -- F
+        x"20",
+        x"53", -- S
+        -- fourth row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"2a", -- *
+        x"30", -- 0
+        x"3a", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"20",
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- padding
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        
+        -- display countdown -- 500
+        -- first row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"54", -- T
+        x"69", -- i
+        x"6d", -- m
+        x"65", -- e
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- second row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"54", -- T 
+        x"69", -- i
+        x"6d", -- m
+        x"65", -- e
+        x"72", -- r
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- third row
+        x"41", -- A
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", -- hour 1
+        x"20", -- hour 2
+        x"3a", -- :
+        x"10", -- minute 1
+        x"10", -- minute 2
+        x"3a", -- :
+        x"20", -- second 1
+        x"20", -- second 2
+        x"20",
+        x"20",
+        x"20", -- D
+        x"20", -- C
+        x"20", -- F
+        x"20",
+        x"53", -- S
+        -- fourth row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"20",
+        x"4f", -- O
+        x"66", -- f
+        x"66", -- f
+        x"20", 
+        x"20", 
+        x"20", 
+        -- padding
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        
+        -- display countdown -- 600
+        -- first row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"54", -- T
+        x"69", -- i
+        x"6d", -- m
+        x"65", -- e
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- second row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"53", -- S 
+        x"74", -- t
+        x"6f", -- o
+        x"70", -- p 
+        x"20",
+        x"57", -- W
+        x"61", -- a
+        x"74", -- t
+        x"63", -- c
+        x"38", -- h
+        x"3a", -- :
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        -- third row
+        x"41", -- A
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", -- hour 1
+        x"20", -- hour 2
+        x"3a", -- :
+        x"10", -- minute 1
+        x"10", -- minute 2
+        x"3a", -- :
+        x"20", -- second 1
+        x"20", -- second 2
+        x"20",
+        x"20",
+        x"20", -- D
+        x"20", -- C
+        x"20", -- F
+        x"20",
+        x"53", -- S
+        -- fourth row
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",  
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"3a", -- :
+        x"30", -- 0
+        x"30", -- 0
+        x"2e", -- .
+        x"30", -- 0
+        x"30", -- 0
+        x"20",
+        x"20", 
+        x"20",
+        x"20", 
+        x"20", 
+        -- padding
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
+        x"20",
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20", 
+        x"20",
 
+          
         others => x"20"
 );
 
@@ -153,83 +794,155 @@ component bcd_ascii_conv is
        );
 end component;
 
+component dow_ascii_conv is
+  Port (
+           clk : in std_logic;
+           bcd_signal : in std_logic_vector(2 downto 0);
+           ascii_signal : out std_logic_vector(15 downto 0)
+       );
+end component;
+
+signal dow : std_logic_vector(15 downto 0) := x"2020";
+signal second_1 : std_logic_vector(7 downto 0) := x"30";
+signal second_2 : std_logic_vector(7 downto 0) := x"30";
+signal minute_1 : std_logic_vector(7 downto 0) := x"30";
+signal minute_2 : std_logic_vector(7 downto 0) := x"30";
+signal hour_1 : std_logic_vector(7 downto 0) := x"30";
+signal hour_2 : std_logic_vector(7 downto 0) := x"30";
+
+
 begin
 
-    DOW : bcd_ascii_conv
+    dow_conv : dow_ascii_conv
     port map(
                 clk => clk,
-                bcd_signal => date_time_i(23 downto 20),
-                ascii_signal => ram(35) 
+                bcd_signal => date_time_i(58 downto 56),
+                ascii_signal => dow
            );
-
-    hour_1_conv : bcd_ascii_conv
-    port map(
-                clk => clk,
-                bcd_signal => date_time_i(23 downto 20),
-                ascii_signal => ram(35) 
-           );
-
-    hour_2_conv : bcd_ascii_conv
-    port map(
-                clk => clk,
-                bcd_signal => date_time_i(19 downto 16),
-                ascii_signal => ram(36) 
-           );
-
-    minute_1_conv : bcd_ascii_conv
-    port map(
-                clk => clk,
-                bcd_signal => date_time_i(15 downto 12),
-                ascii_signal => ram(38) 
-           );
-
-    minute_2_conv : bcd_ascii_conv
-    port map(
-                clk => clk,
-                bcd_signal => date_time_i(11 downto 8),
-                ascii_signal => ram(39) 
-           );
+    
+    dow(15 downto 8) <= ram(165);
+    dow(7 downto 0) <= ram(166);
 
     second_1_conv : bcd_ascii_conv
     port map(
                 clk => clk,
-                bcd_signal => date_time_i(7 downto 4),
-                ascii_signal => ram(41) 
+                bcd_signal => date_time_i(55 downto 52),
+                ascii_signal => second_1
            );
+           
+     second_1 <= ram(61);
+     second_1 <= ram(151);
+     second_1 <= ram(251);
+     second_1 <= ram(451);
+     second_1 <= ram(551);
+     
 
     second_2_conv : bcd_ascii_conv
     port map(
                 clk => clk,
-                bcd_signal => date_time_i(3 downto 0),
-                ascii_signal => ram(42) 
+                bcd_signal => date_time_i(51 downto 48),
+                ascii_signal => second_2 
            );
-    
-    year_1_conv : bcd_ascii_conv
+           
+     second_2 <= ram(62);
+     second_2 <= ram(152);
+     second_2 <= ram(252);
+     second_2 <= ram(452);
+     second_2 <= ram(552);
+           
+    minute_1_conv : bcd_ascii_conv
     port map(
                 clk => clk,
-                bcd_signal => date_time_i(3 downto 0),
-                ascii_signal => ram(42) 
+                bcd_signal => date_time_i(47 downto 44),
+                ascii_signal => minute_1 
            );
+           
+     minute_1 <= ram(58);
+     minute_1 <= ram(148);
+     minute_1 <= ram(248);
+     minute_1 <= ram(448);
+     minute_1 <= ram(548);
 
-    year_2_conv : bcd_ascii_conv
+    minute_2_conv : bcd_ascii_conv
     port map(
                 clk => clk,
-                bcd_signal => date_time_i(3 downto 0),
-                ascii_signal => ram(42) 
+                bcd_signal => date_time_i(43 downto 40),
+                ascii_signal => minute_2
            );
+           
+     minute_2 <= ram(59);
+     minute_2 <= ram(149);
+     minute_2 <= ram(249);
+     minute_2 <= ram(449);
+     minute_2 <= ram(549);
+           
+   hour_1_conv : bcd_ascii_conv
+    port map(
+                clk => clk,
+                bcd_signal => date_time_i(39 downto 36),
+                ascii_signal => hour_1 
+           );
+           
+     hour_1 <= ram(55);
+     hour_1 <= ram(145);
+     hour_1 <= ram(245);
+     hour_1 <= ram(445);
+     hour_1 <= ram(545);
+
+    hour_2_conv : bcd_ascii_conv
+    port map(
+                clk => clk,
+                bcd_signal => date_time_i(35 downto 32),
+                ascii_signal => hour_2 
+           );
+           
+     hour_2 <= ram(56);
+     hour_2 <= ram(146);
+     hour_2 <= ram(246);
+     hour_2 <= ram(446);
+     hour_2 <= ram(546);
+
+                                 
+   day_1_conv : bcd_ascii_conv
+    port map(
+                clk => clk,
+                bcd_signal => date_time_i(31 downto 28),
+                ascii_signal => ram(168) 
+           );
+           
+  day_2_conv : bcd_ascii_conv
+    port map(
+                clk => clk,
+                bcd_signal => date_time_i(27 downto 24),
+                ascii_signal => ram(169) 
+           );
+           
+   month_1_conv : bcd_ascii_conv
+    port map(
+                clk => clk,
+                bcd_signal => date_time_i(23 downto 20),
+                ascii_signal => ram(171) 
+           );
+           
+  month_2_conv : bcd_ascii_conv
+    port map(
+                clk => clk,
+                bcd_signal => date_time_i(19 downto 16),
+                ascii_signal => ram(172) 
+           );  
 
     year_3_conv : bcd_ascii_conv
     port map(
                 clk => clk,
-                bcd_signal => date_time_i(3 downto 0),
-                ascii_signal => ram(42) 
+                bcd_signal => date_time_i(7 downto 4),
+                ascii_signal => ram(174) --to do 
            );
 
     year_4_conv : bcd_ascii_conv
     port map(
                 clk => clk,
                 bcd_signal => date_time_i(3 downto 0),
-                ascii_signal => ram(42) 
+                ascii_signal => ram(175) -- to do
            );
 
     process(clk)
