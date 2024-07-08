@@ -101,7 +101,25 @@ component fsm is
            );
 end component;		
 
-	
+component date_time 
+    Port ( 
+    -- FROM CLK_GEN
+           clk                : in STD_LOGIC;
+           reset              : in STD_LOGIC;
+           en_1               : in STD_LOGIC;
+    -- FROM DCF_DECODER
+           dcf_valid          : in STD_LOGIC;  
+           de_dow             : in STD_LOGIC_VECTOR (2 downto 0);
+           de_day             : in STD_LOGIC_VECTOR (5 downto 0);
+           de_month           : in STD_LOGIC_VECTOR (4 downto 0);
+           de_year            : in STD_LOGIC_VECTOR (7 downto 0);  
+           de_hour            : in STD_LOGIC_VECTOR (5 downto 0);    
+           de_min             : in STD_LOGIC_VECTOR (6 downto 0);      
+    -- TO DISPLAY_CONTROLLER
+           dcf_str_print      : out STD_LOGIC;        
+           date_time_year     : out STD_LOGIC_VECTOR (58 downto 0)
+          );
+  end component;
 	
 	
 begin
@@ -130,6 +148,21 @@ global_fsm: fsm port map(
     reset=>reset,
     mode=> mode
     );
+
+  date_time_u1:  date_time 
+    port map (
+      clk => clk, 
+      reset => reset, 
+      en_1 => en_1, 
+      de_set => de_set, 
+      de_dow => de_dow, 
+      de_day => de_day, 
+      de_month => de_month, 
+      de_year => de_year, 
+      de_hour => de_hour, 
+      de_min => de_min, 
+      dcf_str_print => dcf_str_print, 
+      date_time_year => date_time);
 
 	
 end Behavioral;
