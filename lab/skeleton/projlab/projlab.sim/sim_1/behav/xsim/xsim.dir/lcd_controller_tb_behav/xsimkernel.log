@@ -2,3 +2,6 @@ Running: xsim.dir/lcd_controller_tb_behav/xsimk -simmode gui -wdb lcd_controller
 Design successfully loaded
 Design Loading Memory Usage: 33476 KB (Peak: 33528 KB)
 Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 119312 KB (Peak: 172744 KB)
+Simulation CPU Usage: 20 ms
