@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/nas/ei/home/ge93zow/lab/skeleton/zedboard_master.xdc rfile:../../../../zedboard_master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/zedboard_master.xdc rfile:../../../../zedboard_master.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:81 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN Y9 [get_ports GCLK]
 set_property src_info {type:XDC file:1 line:92 export:INPUT save:INPUT read:READ} [current_design]

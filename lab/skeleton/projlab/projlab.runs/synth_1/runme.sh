@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.runs/synth_1'
+HD_PWD='/nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

@@ -18,30 +18,29 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
-set_param chipscope.maxJobs 4
 create_project -in_memory -part xc7z020clg484-3
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.cache/wt [current_project]
-set_property parent.project_path /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.xpr [current_project]
+set_property webtalk.parent_dir /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.cache/wt [current_project]
+set_property parent.project_path /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.cache/ip [current_project]
+set_property ip_output_repo /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library MFclock {
-  /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sources_1/new/bcd_ascii_conv.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/clock_gen.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/clock_module.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/dcf_decode.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/dcf_gen.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/debounce.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/key_control.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/top.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sources_1/new/lcd_controller.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.srcs/sources_1/new/ram.vhd
-  /nas/ei/home/ge93zow/lab/skeleton/hardware.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.srcs/sources_1/new/bcd_ascii_conv.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/clock_gen.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/clock_module.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/dcf_decode.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/dcf_gen.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/debounce.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/key_control.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/top.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.srcs/sources_1/new/lcd_controller.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.srcs/sources_1/new/ram.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/hardware.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -51,8 +50,8 @@ read_vhdl -library MFclock {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /nas/ei/home/ge93zow/lab/skeleton/zedboard_master.xdc
-set_property used_in_implementation false [get_files /nas/ei/home/ge93zow/lab/skeleton/zedboard_master.xdc]
+read_xdc /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/zedboard_master.xdc
+set_property used_in_implementation false [get_files /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/zedboard_master.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

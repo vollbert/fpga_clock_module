@@ -17,7 +17,7 @@ entity lcd_controller is
         reset            : in std_logic;
         dcf_str_print    : in std_logic;
         mode             : in std_logic_vector(2 downto 0);
-        date_time_i      : in std_logic_vector(47 downto 0);
+        date_time_i      : in std_logic_vector(58 downto 0);
         lcd_en           : out std_logic;
         lcd_rw           : out std_logic := '0';
         lcd_rs           : out std_logic := '0';
@@ -43,7 +43,7 @@ architecture Behavioral of lcd_controller is
 		);
 	end component;
 
-        signal read_addr : std_logic_vector(9 downto 0) := "00000000";
+        signal read_addr : std_logic_vector(9 downto 0) := "0000000000";
         signal enable_enable : std_logic := '1';
         signal timer : std_logic_vector(7 downto 0) := "00000000";
         -- fsm signals
@@ -83,10 +83,10 @@ begin
                         when init =>
                     -- set to the number of init instructions
                             
-                            if read_addr = x"000" then
+                            if read_addr = "00" & x"00" then
                                 read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                             -- clear display exec time of 1.52 ms
-                            elsif read_addr = x"001" then
+                            elsif read_addr = "00" & x"01" then
                                 
                                 if timer = x"0F" then
                                             read_addr <= std_logic_vector(unsigned(read_addr) + 1);
@@ -96,7 +96,7 @@ begin
                                 end if;
                                 
                                  -- return home exec time of 1.52 ms
-                             elsif read_addr = x"002" then
+                             elsif read_addr = "00" & x"02" then
                                  if timer = x"0F" then
                                             read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                                             timer <= x"00";
@@ -107,7 +107,7 @@ begin
                                     read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                             end if;
                                 
-                            if read_addr = x"004" then
+                            if read_addr = "00" & x"04" then
                                 state <= set_mode;
                             else 
                                 state <= init;
@@ -118,31 +118,31 @@ begin
 
                             if unsigned(mode) = 0 then
                                 state <= display_time;
-                                read_addr <= x"00A"; --10
+                                read_addr <= "00" & x"0A"; --10
 
                             elsif mode = "001" then
                                 state <= display_date;
-                                read_addr <= x"064"; --100
+                                read_addr <= "00" & x"64"; --100
 
                             elsif mode = "010" then
                                 state <= display_alarm;
-                                read_addr <= x"0C8"; --200
+                                read_addr <= "00" & x"C8"; --200
 
                             elsif mode = "011" then
                                 state <= display_time_switch_on;
-                                read_addr <= x"12C"; --300
+                                read_addr <= "01" & x"2C"; --300
 
                             elsif mode = "100" then
                                 state <= display_time_switch_off;
-                                read_addr <= x"190"; --400
+                                read_addr <= "01" & x"90"; --400
 
                             elsif mode = "101" then
                                 state <= display_countdown_timer;
-                                read_addr <= x"1F4"; --500
+                                read_addr <= "01" & x"F4"; --500
 
                             elsif mode = "111" then
                                 state <= display_stopwatch;
-                                read_addr <= x"258"; --600
+                                read_addr <= "10" & x"58"; --600
 
                             end if;
 
@@ -217,7 +217,7 @@ begin
                     
                 when init =>
                     enable_enable <= '1';
-                    if read_addr = x"04" then
+                    if read_addr = "00" & x"04" then
                         enable_enable <= '0';
                     end if;
 

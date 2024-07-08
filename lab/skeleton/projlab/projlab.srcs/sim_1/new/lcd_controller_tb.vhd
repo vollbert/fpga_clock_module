@@ -20,7 +20,7 @@ architecture Behavioral of lcd_controller_tb is
 	signal reset : std_logic := '0';
 	signal dcf_str_print : std_logic := '0';
 	signal mode : std_logic_vector(2 downto 0) := "000";
-	signal date_time : std_logic_vector(47 downto 0) := x"000000000000";
+	signal date_time : std_logic_vector(58 downto 0) := "000" & x"00000000000000";
 	signal lcd_en : std_logic := '0';
 	signal lcd_rw : std_logic := '0';
 	signal lcd_rs : std_logic := '0';
@@ -35,7 +35,7 @@ architecture Behavioral of lcd_controller_tb is
 			reset            : in std_logic;
 			dcf_str_print    : in std_logic;
 			mode             : in std_logic_vector(2 downto 0);
-			date_time_i      : in std_logic_vector(47 downto 0);
+			date_time_i      : in std_logic_vector(58 downto 0);
 			lcd_en           : out std_logic;
 			lcd_rw           : out std_logic;
 			lcd_rs           : out std_logic;
@@ -79,7 +79,7 @@ begin
 			wait for 351 us;
 			reset <= '0';
 			wait for 8 ms;
-			date_time <= x"210508301549";
+			date_time <= "000" & x"00210508301549";
 			dcf_str_print <= '1';
 			wait;
 		end process;

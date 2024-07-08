@@ -27,7 +27,7 @@ end ram;
 
 architecture Behavioral of ram is
 
-    type ram_array is array ( 0 to 1023 ) of std_logic_vector ( 9 downto 0 );
+    type ram_array is array ( 0 to 1023 ) of std_logic_vector ( 7 downto 0 );
 
     signal ram: ram_array := (
 

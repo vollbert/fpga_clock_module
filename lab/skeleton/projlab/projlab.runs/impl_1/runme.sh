@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/nas/ei/home/ge93zow/lab/skeleton/projlab/projlab.runs/impl_1'
+HD_PWD='/nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -37,7 +37,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
+/bin/touch .init_design.begin.rst
 EAStep vivado -log hardware.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source hardware.tcl -notrace
 
 

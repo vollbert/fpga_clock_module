@@ -71,7 +71,7 @@ end clock_module;
 architecture Behavioral of clock_module is
 	
 	signal dcf_str_print : std_logic := '0';
-	signal date_time : std_logic_vector(47 downto 0) := (others => '0');
+	signal date_time : std_logic_vector(58 downto 0) := (others => '0');
 	signal mode : std_logic_vector(2 downto 0) := (others => '0');
 	
 	component lcd_controller
@@ -81,7 +81,7 @@ architecture Behavioral of clock_module is
         reset            : in std_logic;
         dcf_str_print    : in std_logic;
         mode             : in std_logic_vector(2 downto 0);
-        date_time_i      : in std_logic_vector(47 downto 0);
+        date_time_i      : in std_logic_vector(58 downto 0);
         lcd_en           : out std_logic;
         lcd_rw           : out std_logic := '0';
         lcd_rs           : out std_logic := '0';
