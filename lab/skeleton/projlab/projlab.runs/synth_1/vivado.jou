@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Mon Jul  8 21:39:27 2024
-# Process ID: 124428
+# Start of session at: Mon Jul  8 22:02:53 2024
+# Process ID: 168070
 # Current directory: /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.runs/synth_1
 # Command line: vivado -log hardware.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source hardware.tcl
 # Log file: /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.runs/synth_1/hardware.vds

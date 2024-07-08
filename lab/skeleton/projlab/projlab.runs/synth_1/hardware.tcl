@@ -43,7 +43,10 @@ read_vhdl -library MFclock {
   /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.srcs/sources_1/new/ram.vhd
   /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/hardware.vhd
 }
-read_vhdl -library xil_defaultlib /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.srcs/sources_1/new/fsm.vhd
+read_vhdl -library xil_defaultlib {
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.srcs/sources_1/new/date_time.vhd
+  /nas/ei/home/ge93zow/fpga_clock_module/lab/skeleton/projlab/projlab.srcs/sources_1/new/fsm.vhd
+}
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
