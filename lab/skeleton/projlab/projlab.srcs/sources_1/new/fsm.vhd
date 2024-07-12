@@ -80,13 +80,13 @@ begin
        mode_count <= "000";
     elsif rising_edge(clk) then
         if mode_count = "000" then --TIME
-            if key_mode_imp='1' then
+            if key_mode_imp='1' and start_timer = '0' then
                 mode_count <= "001";
+                start_timer <= '1';
             elsif key_minus_imp='1'or key_plus_imp='1' then 
                 mode_count <= "110";
             end if;
         elsif mode_count="001" then --DATE
-            start_timer <= '1';
             if end_timer = '1' then
                 mode_count <= "000";
             elsif key_mode_imp='1' and start_timer = '1' then
