@@ -37,7 +37,7 @@ entity fsm is
            key_minus_imp :in  STD_LOGIC;
            key_action_imp : in  STD_LOGIC;
            clk : in STD_LOGIC;
-           en_1k : in STD_LOGIC;
+           en_1 : in STD_LOGIC;
            reset : in STD_LOGIC;
            
            mode : out STD_LOGIC_VECTOR(2 downto 0));
@@ -51,18 +51,18 @@ signal end_timer:std_logic := '0';
 begin
 mode <= mode_count;
 
-countdown:process(en_1k,reset)
+countdown:process(en_1,reset)
 begin
     if reset = '1' then --reset all
         timer <= 0;
         end_timer <= '0';
     
-    elsif rising_edge(en_1k) then 
+    elsif rising_edge(en_1) then 
         end_timer <= '0';
         if start_timer = '1' then --start_timer
-            if timer < 3000 then
+            if timer < 3 then
                 timer <= timer + 1; --count 3s
-            elsif timer >= 3000 then
+            elsif timer >= 3 then
                 timer <= 0;
                 end_timer <= '1'; --time over
             end if;
