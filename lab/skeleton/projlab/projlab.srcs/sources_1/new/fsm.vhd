@@ -63,10 +63,9 @@ begin
         if start_timer = '1' then --start_timer
             if timer < 3000 then
                 timer <= timer + 1; --count 3s
-            else
+            elsif timer >= 3000 then
                 timer <= 0;
-                end_timer <= '1';
-                start_timer <= '0'; --time over
+                end_timer <= '1'; --time over
             end if;
         elsif start_timer = '0' then
             timer <= 0;   
@@ -89,6 +88,7 @@ begin
         elsif mode_count="001" then --DATE
             if end_timer = '1' then
                 mode_count <= "000";
+                start_timer <= '0';
             elsif key_mode_imp='1' and start_timer = '1' then
                 mode_count <= "010";
                 start_timer <= '0'; 
