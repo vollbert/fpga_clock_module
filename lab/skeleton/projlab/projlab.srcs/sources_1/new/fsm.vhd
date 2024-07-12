@@ -64,9 +64,12 @@ begin
             if timer < 3000 then
                 timer <= timer + 1; --count 3s
             else
+                timer <= 0;
                 end_timer <= '1';
                 start_timer <= '0'; --time over
             end if;
+        elsif start_timer = '0' then
+            timer <= 0;   
         end if;
     end if;
 end process;
