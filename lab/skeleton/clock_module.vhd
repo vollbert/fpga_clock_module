@@ -95,7 +95,7 @@ component fsm is
            key_minus_imp :in  STD_LOGIC;
            key_action_imp : in  STD_LOGIC;
            clk : in STD_LOGIC;
-           en_1k : in STD_LOGIC;
+           en_1 : in STD_LOGIC;
            reset : in STD_LOGIC;
            mode : out STD_LOGIC_VECTOR(2 downto 0)
            );
@@ -144,7 +144,7 @@ global_fsm: fsm port map(
     key_plus_imp=> key_plus_imp,
     key_action_imp => key_action_imp,
     clk => clk,
-    en_1k=>en_1k,
+    en_1=>en_1,
     reset=>reset,
     mode=> mode
     );
