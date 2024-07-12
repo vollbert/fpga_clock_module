@@ -899,7 +899,6 @@ begin
                      ram(61) <=  second_1;
                      ram(151) <= second_1;
                      ram(251) <= second_1;
-                     ram(451) <= second_1;
                      ram(551) <= second_1;
                      ram(651) <= second_1;
                      
@@ -907,7 +906,6 @@ begin
                      ram(62) <= second_2;
                      ram(152) <= second_2;
                      ram(252) <= second_2;
-                     ram(452) <= second_2;
                      ram(552) <= second_2;
                      ram(652) <= second_2;
                      
@@ -915,7 +913,6 @@ begin
                      ram(58) <= minute_1;
                      ram(148) <= minute_1;
                      ram(248) <= minute_1;
-                     ram(448) <= minute_1;
                      ram(548) <= minute_1;
                      ram(648) <= minute_1;
                      
@@ -923,7 +920,6 @@ begin
                      ram(59) <= minute_2;
                      ram(149) <= minute_2;
                      ram(249) <= minute_2;
-                     ram(449) <= minute_2;
                      ram(549) <= minute_2;
                      ram(649) <= minute_2;
                      
@@ -931,7 +927,6 @@ begin
                      ram(55) <= hour_1;
                      ram(145) <= hour_1;
                      ram(245) <= hour_1;
-                     ram(445) <= hour_1;
                      ram(545) <= hour_1;
                      ram(645) <= hour_1;
                      
@@ -939,7 +934,6 @@ begin
                      ram(56) <= hour_2;
                      ram(146) <= hour_2;
                      ram(246) <= hour_2;
-                     ram(446) <= hour_2;
                      ram(546) <= hour_2;
                      ram(646) <= hour_2;
                     
