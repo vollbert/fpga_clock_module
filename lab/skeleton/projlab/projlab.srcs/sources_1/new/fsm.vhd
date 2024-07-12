@@ -55,7 +55,6 @@ countdown:process(en_1k,reset)
 begin
     if reset = '1' then --reset all
         timer <= 0;
-        start_timer <= '0';
         end_timer <= '0';
     
     elsif rising_edge(en_1k) then 
@@ -77,6 +76,7 @@ main: process(clk,reset)
 begin
     if reset = '1' then
        mode_count <= "000";
+       start_timer <= '0';
     elsif rising_edge(clk) then
         if mode_count = "000" then --TIME
             if key_mode_imp='1' and start_timer = '0' then
