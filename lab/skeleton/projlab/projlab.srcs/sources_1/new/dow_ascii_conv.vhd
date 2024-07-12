@@ -10,15 +10,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity bcd_ascii_conv is
+entity dow_ascii_conv is
   Port (
 	    clk : in std_logic;
 		bcd_signal : in std_logic_vector(2 downto 0);
 		ascii_signal : out std_logic_vector(15 downto 0)
        );
-end bcd_ascii_conv;
+end dow_ascii_conv;
 
-  architecture Behavioral of bcd_ascii_conv is
+  architecture Behavioral of dow_ascii_conv is
 
 begin
 
@@ -40,7 +40,7 @@ begin
 			when "110" =>
 				ascii_signal <= x"5361"; -- Sa
 			when others =>
-				ascii_signal <= x"20";
+				ascii_signal <= x"2020";
 		end case;
 	end process;
 end Behavioral;

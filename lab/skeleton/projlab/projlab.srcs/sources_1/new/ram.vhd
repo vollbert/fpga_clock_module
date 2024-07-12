@@ -169,12 +169,12 @@ architecture Behavioral of ram is
         x"20", 
         x"20", 
         x"20", 
+        x"20",
         x"44", -- D
         x"41", -- A
         x"54", -- T
         x"45", -- E
         x"3a", -- :
-        x"20",
         x"20", 
         x"20", 
         x"20", 
@@ -819,9 +819,7 @@ begin
                 bcd_signal => date_time_i(58 downto 56),
                 ascii_signal => dow
            );
-    
-    dow(15 downto 8) <= ram(165);
-    dow(7 downto 0) <= ram(166);
+
 
     second_1_conv : bcd_ascii_conv
     port map(
@@ -829,12 +827,7 @@ begin
                 bcd_signal => date_time_i(55 downto 52),
                 ascii_signal => second_1
            );
-           
-     second_1 <= ram(61);
-     second_1 <= ram(151);
-     second_1 <= ram(251);
-     second_1 <= ram(451);
-     second_1 <= ram(551);
+
      
 
     second_2_conv : bcd_ascii_conv
@@ -843,12 +836,7 @@ begin
                 bcd_signal => date_time_i(51 downto 48),
                 ascii_signal => second_2 
            );
-           
-     second_2 <= ram(62);
-     second_2 <= ram(152);
-     second_2 <= ram(252);
-     second_2 <= ram(452);
-     second_2 <= ram(552);
+
            
     minute_1_conv : bcd_ascii_conv
     port map(
@@ -856,12 +844,7 @@ begin
                 bcd_signal => date_time_i(47 downto 44),
                 ascii_signal => minute_1 
            );
-           
-     minute_1 <= ram(58);
-     minute_1 <= ram(148);
-     minute_1 <= ram(248);
-     minute_1 <= ram(448);
-     minute_1 <= ram(548);
+
 
     minute_2_conv : bcd_ascii_conv
     port map(
@@ -869,12 +852,7 @@ begin
                 bcd_signal => date_time_i(43 downto 40),
                 ascii_signal => minute_2
            );
-           
-     minute_2 <= ram(59);
-     minute_2 <= ram(149);
-     minute_2 <= ram(249);
-     minute_2 <= ram(449);
-     minute_2 <= ram(549);
+
            
    hour_1_conv : bcd_ascii_conv
     port map(
@@ -882,12 +860,7 @@ begin
                 bcd_signal => date_time_i(39 downto 36),
                 ascii_signal => hour_1 
            );
-           
-     hour_1 <= ram(55);
-     hour_1 <= ram(145);
-     hour_1 <= ram(245);
-     hour_1 <= ram(445);
-     hour_1 <= ram(545);
+
 
     hour_2_conv : bcd_ascii_conv
     port map(
@@ -895,12 +868,7 @@ begin
                 bcd_signal => date_time_i(35 downto 32),
                 ascii_signal => hour_2 
            );
-           
-     hour_2 <= ram(56);
-     hour_2 <= ram(146);
-     hour_2 <= ram(246);
-     hour_2 <= ram(446);
-     hour_2 <= ram(546);
+
 
                                  
    day_1_conv : bcd_ascii_conv
@@ -954,14 +922,75 @@ begin
 
                 else
                     if dcf_str_print = '1' then
-                        ram(45) <= x"44"; -- D
-                        ram(46) <= x"43";
-                        ram(47) <= x"46";
-                    else
-                        ram(45) <= x"01";
-                        ram(46) <= x"01";
-                        ram(47) <= x"01";
+                        -- time
+                        ram(65) <= x"44"; -- D
+                        ram(66) <= x"43"; -- C
+                        ram(67) <= x"46"; -- F
+                        
+                        -- date
+                        ram(155) <= x"44"; -- D
+                        ram(156) <= x"43"; -- C
+                        ram(157) <= x"46"; -- F
+                        
+                        -- to do
+                    else 
+                        -- time
+                        ram(65) <= x"20"; -- 0
+                        ram(66) <= x"20"; -- 0
+                        ram(67) <= x"20"; -- 0
+                        
+                        -- date
+                        ram(155) <= x"20"; -- 0
+                        ram(156) <= x"20"; -- 0
+                        ram(157) <= x"20"; -- 0
                     end if;
+                        
+                        -- assign dow signals to ram
+                    ram(165) <= dow(15 downto 8);
+                    ram(166) <=dow(7 downto 0);
+                    
+                     -- assign sec1 signals     
+                     ram(61) <=  second_1;
+                     ram(151) <= second_1;
+                     ram(251) <= second_1;
+                     ram(451) <= second_1;
+                     ram(551) <= second_1;
+                     
+                     -- assign sec2 signals      
+                     ram(62) <= second_2;
+                     ram(152) <= second_2;
+                     ram(252) <= second_2;
+                     ram(452) <= second_2;
+                     ram(552) <= second_2;
+                     
+                     -- assgin min1 signals      
+                     ram(58) <= minute_1;
+                     ram(148) <= minute_1;
+                     ram(248) <= minute_1;
+                     ram(448) <= minute_1;
+                     ram(548) <= minute_1;
+                     
+                     -- assign min2 signals           
+                     ram(59) <= minute_2;
+                     ram(149) <= minute_2;
+                     ram(249) <= minute_2;
+                     ram(449) <= minute_2;
+                     ram(549) <= minute_2;
+                     
+                     -- assign hour1 signals     
+                     ram(55) <= hour_1;
+                     ram(145) <= hour_1;
+                     ram(245) <= hour_1;
+                     ram(445) <= hour_1;
+                     ram(545) <= hour_1;
+                     
+                     -- assign hour2 signals        
+                     ram(56) <= hour_2;
+                     ram(146) <= hour_2;
+                     ram(246) <= hour_2;
+                     ram(446) <= hour_2;
+                     ram(546) <= hour_2;
+                    
                 end if;
             end if;
         end process;

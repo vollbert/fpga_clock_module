@@ -88,7 +88,7 @@ begin
                             -- clear display exec time of 1.52 ms
                             elsif read_addr = "00" & x"01" then
                                 
-                                if timer = x"0F" then
+                                if timer = x"14" then
                                             read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                                             timer <= x"00";
                                 else
@@ -97,7 +97,7 @@ begin
                                 
                                  -- return home exec time of 1.52 ms
                              elsif read_addr = "00" & x"02" then
-                                 if timer = x"0F" then
+                                 if timer = x"14" then
                                             read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                                             timer <= x"00";
                                  else
