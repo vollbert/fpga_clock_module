@@ -35,9 +35,9 @@ architecture Behavioral of ram is
         "00111000", -- 0x0 function set : 8 bit bus mode, 2 line display mode, 5x8 dots display mode  
         "00000001", -- 0x1 clear display
         "00001110", -- 0x2 turn display on, cursor is turned on, cursor blink is disabled
-        "00000010", -- 0x3 return home
+        --"00000010", -- 0x3 return home
         "00000110", -- 0x4 set entry mode to increase cursor and don't shift entire display
-        
+        x"00",
         "00000000", -- 0x5
         "00000000", -- 0x6
         "00000000", -- 0x7
@@ -461,8 +461,8 @@ architecture Behavioral of ram is
         x"20", 
         x"20", 
         
-                            -- display time_switch_off -- 400
-                -- first row
+        -- display time_switch_off -- 400
+        -- first row
         x"20", 
         x"20", 
         x"20", 
@@ -710,7 +710,7 @@ architecture Behavioral of ram is
         x"61", -- a
         x"74", -- t
         x"63", -- c
-        x"38", -- h
+        x"68", -- h
         x"3a", -- :
         x"20", 
         x"20", 
@@ -919,6 +919,7 @@ begin
             if reset = '1' then
             
             -- to do
+            -- add reset values for dynamic ram 
 
                 else
                     if dcf_str_print = '1' then
@@ -932,6 +933,31 @@ begin
                         ram(156) <= x"43"; -- C
                         ram(157) <= x"46"; -- F
                         
+                        -- alarm
+                        ram(255) <= x"44"; -- D
+                        ram(256) <= x"43"; -- C
+                        ram(257) <= x"46"; -- F
+                        
+                        -- time switch on
+                        ram(355) <= x"44"; -- D
+                        ram(356) <= x"43"; -- C
+                        ram(357) <= x"46"; -- F
+                        
+                        -- time switch off
+                        ram(455) <= x"44"; -- D
+                        ram(456) <= x"43"; -- C
+                        ram(457) <= x"46"; -- F
+                        
+                        -- countdown
+                        ram(555) <= x"44"; -- D
+                        ram(556) <= x"43"; -- C
+                        ram(557) <= x"46"; -- F
+                        
+                        -- stop watch
+                        ram(655) <= x"44"; -- D
+                        ram(656) <= x"43"; -- C
+                        ram(657) <= x"46"; -- F
+                        
                         -- to do
                     else 
                         -- time
@@ -943,6 +969,32 @@ begin
                         ram(155) <= x"20"; -- 0
                         ram(156) <= x"20"; -- 0
                         ram(157) <= x"20"; -- 0
+                        
+                        -- alarm
+                        ram(255) <= x"20"; -- 0
+                        ram(256) <= x"20"; -- 0
+                        ram(257) <= x"20"; -- 0
+                        
+                        -- time switch on
+                        ram(355) <= x"20"; -- 0
+                        ram(356) <= x"20"; -- 0
+                        ram(357) <= x"20"; -- 0
+                        
+                        -- time switch off
+                        ram(455) <= x"20"; -- 0
+                        ram(456) <= x"20"; -- 0
+                        ram(457) <= x"20"; -- 0
+                        
+                        -- countdown
+                        ram(555) <= x"20"; -- 0
+                        ram(556) <= x"20"; -- 0
+                        ram(557) <= x"20"; -- 0
+                        
+                        -- stop watch
+                        ram(655) <= x"20"; -- 0
+                        ram(656) <= x"20"; -- 0
+                        ram(657) <= x"20"; -- 0
+                        
                     end if;
                         
                         -- assign dow signals to ram
@@ -955,6 +1007,7 @@ begin
                      ram(251) <= second_1;
                      ram(451) <= second_1;
                      ram(551) <= second_1;
+                     ram(651) <= second_1;
                      
                      -- assign sec2 signals      
                      ram(62) <= second_2;
@@ -962,6 +1015,7 @@ begin
                      ram(252) <= second_2;
                      ram(452) <= second_2;
                      ram(552) <= second_2;
+                     ram(652) <= second_2;
                      
                      -- assgin min1 signals      
                      ram(58) <= minute_1;
@@ -969,6 +1023,7 @@ begin
                      ram(248) <= minute_1;
                      ram(448) <= minute_1;
                      ram(548) <= minute_1;
+                     ram(648) <= minute_1;
                      
                      -- assign min2 signals           
                      ram(59) <= minute_2;
@@ -976,6 +1031,7 @@ begin
                      ram(249) <= minute_2;
                      ram(449) <= minute_2;
                      ram(549) <= minute_2;
+                     ram(649) <= minute_2;
                      
                      -- assign hour1 signals     
                      ram(55) <= hour_1;
@@ -983,6 +1039,7 @@ begin
                      ram(245) <= hour_1;
                      ram(445) <= hour_1;
                      ram(545) <= hour_1;
+                     ram(645) <= hour_1;
                      
                      -- assign hour2 signals        
                      ram(56) <= hour_2;
@@ -990,6 +1047,7 @@ begin
                      ram(246) <= hour_2;
                      ram(446) <= hour_2;
                      ram(546) <= hour_2;
+                     ram(646) <= hour_2;
                     
                 end if;
             end if;

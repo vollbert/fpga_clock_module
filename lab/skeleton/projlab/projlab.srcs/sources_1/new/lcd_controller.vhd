@@ -87,30 +87,20 @@ begin
                                 read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                             -- clear display exec time of 1.52 ms
                             elsif read_addr = "00" & x"01" then
-                                
-                                if timer = x"14" then
+                                timer <= std_logic_vector(unsigned(timer) + 1);
+                                if timer = x"00" then
+                                    enable_enable <= '0';
+                                elsif timer = x"14" then
                                             read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                                             timer <= x"00";
-                                else
-                                    timer <= std_logic_vector(unsigned(timer) + 1);
                                 end if;
+                                                                  
                                 
-                                 -- return home exec time of 1.52 ms
-                             elsif read_addr = "00" & x"02" then
-                                 if timer = x"14" then
-                                            read_addr <= std_logic_vector(unsigned(read_addr) + 1);
-                                            timer <= x"00";
-                                 else
-                                        timer <= std_logic_vector(unsigned(timer) + 1);
-                                 end if;
-                             else
-                                    read_addr <= std_logic_vector(unsigned(read_addr) + 1);
-                            end if;
-                                
-                            if read_addr = "00" & x"04" then
+                            elsif read_addr = "00" & x"03" then
                                 state <= set_mode;
                             else 
                                 state <= init;
+                                read_addr <= std_logic_vector(unsigned(read_addr) + 1);
                             end if;
 
                         when set_mode =>
@@ -140,7 +130,7 @@ begin
                                 state <= display_countdown_timer;
                                 read_addr <= "01" & x"F4"; --500
 
-                            elsif mode = "111" then
+                            elsif mode = "110" then
                                 state <= display_stopwatch;
                                 read_addr <= "10" & x"58"; --600
 
@@ -217,8 +207,16 @@ begin
                     
                 when init =>
                     enable_enable <= '1';
-                    if read_addr = "00" & x"04" then
+                    if read_addr = "00" & x"01" then
+                        if timer = x"14" then
+                            enable_enable <= '1';
+                            else
+                            enable_enable <= '0';
+                        end if;
+                    
+                    elsif read_addr = "00" & x"03" then
                         enable_enable <= '0';
+                        
                     end if;
 
                 when set_mode =>
