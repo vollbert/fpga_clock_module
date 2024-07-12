@@ -210,7 +210,7 @@ begin
                     if read_addr = "00" & x"01" then
                         if timer = x"14" then
                             enable_enable <= '1';
-                            else
+                        else
                             enable_enable <= '0';
                         end if;
                     
