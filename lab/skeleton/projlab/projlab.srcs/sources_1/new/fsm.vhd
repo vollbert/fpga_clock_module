@@ -59,7 +59,6 @@ begin
         end_timer <= '0';
     
     elsif rising_edge(en_1k) then 
-        end_timer <= '0';
         if start_timer = '1' then --start_timer
             if timer < 3000 then
                 timer <= timer + 1; --count 3s
@@ -68,7 +67,8 @@ begin
                 end_timer <= '1'; --time over
             end if;
         elsif start_timer = '0' then
-            timer <= 0;   
+            timer <= 0;
+            end_timer <= '0';   
         end if;
     end if;
 end process;
