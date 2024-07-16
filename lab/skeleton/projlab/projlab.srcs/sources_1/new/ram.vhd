@@ -34,7 +34,7 @@ architecture Behavioral of ram is
         -- init instructions
         "00111000", -- 0x0 function set : 8 bit bus mode, 2 line display mode, 5x8 dots display mode  
         "00000001", -- 0x1 clear display
-        "00001110", -- 0x2 turn display on, cursor is turned on, cursor blink is disabled
+        "00001100", -- 0x2 turn display on, cursor is turned on, cursor blink is disabled
         --"00000010", -- 0x3 return home
         "00000110", -- 0x4 set entry mode to increase cursor and don't shift entire display
         x"00",
