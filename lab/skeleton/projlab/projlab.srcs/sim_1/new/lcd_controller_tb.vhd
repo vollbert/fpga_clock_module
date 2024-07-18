@@ -78,7 +78,9 @@ begin
 			mode <= "000";
 			wait for 351 us;
 			reset <= '0';
-			wait for 8 ms;
+			wait for 10550 us;
+			mode <= "001";
+			wait for 9 ms;
 			date_time <= "000" & x"00210508301549";
 			dcf_str_print <= '1';
 			wait;
