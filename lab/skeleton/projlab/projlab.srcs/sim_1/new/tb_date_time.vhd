@@ -130,7 +130,9 @@ begin
     de_year     <= b"00010010"; -- 2012
     wait for clk_period;
     dcf_valid   <= '0';
-    wait for clk_period*480;
+    wait for clk_period*240;
+    assert date_time_year = X"00200000000000000000000000000000001000000010010000000010011" report "The output does not match" severity error;
+    wait for clk_period*400;
     
     dcf_valid   <= '1';
     de_min      <= b"1011001"; -- 59
@@ -141,6 +143,8 @@ begin
     de_year     <= b"00010011"; -- 2013
     wait for clk_period;
     dcf_valid   <= '0';
+    wait for clk_period*240;
+    assert date_time_year = X"11000000000000000000000000000000001000000110010000000010011" report "The output does not match" severity error;
     wait for clk_period*480;
 
     dcf_valid   <= '1';
@@ -152,6 +156,7 @@ begin
     de_year     <= b"00010010"; -- 2012
     wait for clk_period;
     dcf_valid   <= '0';
+    assert date_time_year = X"10000000000000000000000000000101001000000100010000000010011" report "The output does not match" severity error;
     wait for clk_period*480;
 
     reset <= '1';
