@@ -138,7 +138,7 @@ begin
     de_min      <= b"1011001"; -- 59
     de_hour     <= b"100011"; -- 23
     de_day      <= b"101000"; -- 28
-    de_dow      <= b"101"; -- Thursday
+    de_dow      <= b"101"; -- Friday
     de_month    <= b"00010"; -- Feb (02)
     de_year     <= b"00010011"; -- 2013
     wait for clk_period;
@@ -151,7 +151,7 @@ begin
     de_min      <= b"1011001"; -- 59
     de_hour     <= b"100011"; -- 23
     de_day      <= b"101000"; -- 28
-    de_dow      <= b"011"; -- Tuesday
+    de_dow      <= b"011"; -- Wednesday
     de_month    <= b"00010"; -- Feb (02)
     de_year     <= b"00010010"; -- 2012
     wait for clk_period;
